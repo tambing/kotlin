@@ -25,7 +25,7 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
     }
 
     public void testAllFilesPresentInDiagnostics() throws Exception {
-        KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "helpers", "linked/annotations", "linked/built-in-types-and-their-semantics", "linked/control--and-data-flow-analysis.control-flow-graph.expressions-1.conditional-expressions", "linked/control--and-data-flow-analysis/performing-analysis-on-the-control-flow-graph", "linked/declarations/classifier-declaration/class-declaration/nested-and-inner-classifiers", "linked/declarations/classifier-declaration/classifier-initialization", "linked/declarations/classifier-declaration/data-class-declaration", "linked/declarations/function-declaration", "linked/declarations/property-declaration/property-initialization", "linked/declarations/type-alias", "linked/expressions/call-and-property-access-expressions", "linked/expressions/function-literals", "linked/inheritance", "linked/overload-resolution/c-level-partition", "linked/overload-resolution/determining-function-applicability-for-a-specific-call/rationale", "linked/overloadable-operators", "linked/statements/assignments/simple-assignments", "linked/type-inference/local-type-inference", "linked/type-inference/smart-casts/smart-cast-types", "linked/type-system/subtyping/subtyping-for-nullable-types", "linked/type-system/type-kinds/type-parameters");
+        KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "helpers", "linked/annotations", "linked/built-in-types-and-their-semantics", "linked/control--and-data-flow-analysis.control-flow-graph.expressions-1.conditional-expressions", "linked/control--and-data-flow-analysis/performing-analysis-on-the-control-flow-graph", "linked/declarations/classifier-declaration/class-declaration/nested-and-inner-classifiers", "linked/declarations/classifier-declaration/classifier-initialization", "linked/declarations/function-declaration", "linked/declarations/property-declaration/property-initialization", "linked/declarations/type-alias", "linked/expressions/call-and-property-access-expressions", "linked/expressions/function-literals", "linked/inheritance", "linked/overload-resolution/c-level-partition", "linked/overload-resolution/determining-function-applicability-for-a-specific-call/rationale", "linked/overloadable-operators", "linked/statements/assignments/simple-assignments", "linked/type-inference/local-type-inference", "linked/type-inference/smart-casts/smart-cast-types", "linked/type-system/subtyping/subtyping-for-nullable-types", "linked/type-system/type-kinds/type-parameters");
     }
 
     @TestMetadata("compiler/tests-spec/testData/diagnostics/linked")
@@ -37,7 +37,7 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
         }
 
         public void testAllFilesPresentInLinked() throws Exception {
-            KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "annotations", "built-in-types-and-their-semantics", "control--and-data-flow-analysis.control-flow-graph.expressions-1.conditional-expressions", "control--and-data-flow-analysis/performing-analysis-on-the-control-flow-graph", "declarations/classifier-declaration/class-declaration/nested-and-inner-classifiers", "declarations/classifier-declaration/classifier-initialization", "declarations/classifier-declaration/data-class-declaration", "declarations/function-declaration", "declarations/property-declaration/property-initialization", "declarations/type-alias", "expressions/call-and-property-access-expressions", "expressions/function-literals", "inheritance", "overload-resolution/c-level-partition", "overload-resolution/determining-function-applicability-for-a-specific-call/rationale", "overloadable-operators", "statements/assignments/simple-assignments", "type-inference/local-type-inference", "type-inference/smart-casts/smart-cast-types", "type-system/subtyping/subtyping-for-nullable-types", "type-system/type-kinds/type-parameters");
+            KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "annotations", "built-in-types-and-their-semantics", "control--and-data-flow-analysis.control-flow-graph.expressions-1.conditional-expressions", "control--and-data-flow-analysis/performing-analysis-on-the-control-flow-graph", "declarations/classifier-declaration/class-declaration/nested-and-inner-classifiers", "declarations/classifier-declaration/classifier-initialization", "declarations/function-declaration", "declarations/property-declaration/property-initialization", "declarations/type-alias", "expressions/call-and-property-access-expressions", "expressions/function-literals", "inheritance", "overload-resolution/c-level-partition", "overload-resolution/determining-function-applicability-for-a-specific-call/rationale", "overloadable-operators", "statements/assignments/simple-assignments", "type-inference/local-type-inference", "type-inference/smart-casts/smart-cast-types", "type-system/subtyping/subtyping-for-nullable-types", "type-system/type-kinds/type-parameters");
         }
 
         @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/control--and-data-flow-analysis")
@@ -180,7 +180,7 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
             }
 
             public void testAllFilesPresentInDeclarations() throws Exception {
-                KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "classifier-declaration/class-declaration/nested-and-inner-classifiers", "classifier-declaration/classifier-initialization", "classifier-declaration/data-class-declaration", "function-declaration", "property-declaration/property-initialization", "type-alias");
+                KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "classifier-declaration/class-declaration/nested-and-inner-classifiers", "classifier-declaration/classifier-initialization", "function-declaration", "property-declaration/property-initialization", "type-alias");
             }
 
             @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration")
@@ -192,7 +192,7 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
                 }
 
                 public void testAllFilesPresentInClassifier_declaration() throws Exception {
-                    KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "class-declaration/nested-and-inner-classifiers", "classifier-initialization", "data-class-declaration");
+                    KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true, "class-declaration/nested-and-inner-classifiers", "classifier-initialization");
                 }
 
                 @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/class-declaration")
@@ -655,6 +655,60 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
                                 public void testAllFilesPresentInPos() throws Exception {
                                     KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/class-declaration/constructor-declaration/p-5/pos"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true);
                                 }
+                            }
+                        }
+                    }
+                }
+
+                @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration")
+                @TestDataPath("$PROJECT_ROOT")
+                @RunWith(JUnit3RunnerWithInners.class)
+                public static class Data_class_declaration extends AbstractFirDiagnosticsTestSpec {
+                    private void runTest(String testDataFilePath) throws Exception {
+                        KotlinTestUtils.runTest(this::doTest, this, testDataFilePath);
+                    }
+
+                    public void testAllFilesPresentInData_class_declaration() throws Exception {
+                        KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true);
+                    }
+
+                    @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1")
+                    @TestDataPath("$PROJECT_ROOT")
+                    @RunWith(JUnit3RunnerWithInners.class)
+                    public static class P_1 extends AbstractFirDiagnosticsTestSpec {
+                        private void runTest(String testDataFilePath) throws Exception {
+                            KotlinTestUtils.runTest(this::doTest, this, testDataFilePath);
+                        }
+
+                        public void testAllFilesPresentInP_1() throws Exception {
+                            KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true);
+                        }
+
+                        @TestMetadata("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg")
+                        @TestDataPath("$PROJECT_ROOT")
+                        @RunWith(JUnit3RunnerWithInners.class)
+                        public static class Neg extends AbstractFirDiagnosticsTestSpec {
+                            private void runTest(String testDataFilePath) throws Exception {
+                                KotlinTestUtils.runTest(this::doTest, this, testDataFilePath);
+                            }
+
+                            @TestMetadata("2.1.kt")
+                            public void test2_1() throws Exception {
+                                runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.1.kt");
+                            }
+
+                            @TestMetadata("2.2.kt")
+                            public void test2_2() throws Exception {
+                                runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.2.kt");
+                            }
+
+                            @TestMetadata("2.3.kt")
+                            public void test2_3() throws Exception {
+                                runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.3.kt");
+                            }
+
+                            public void testAllFilesPresentInNeg() throws Exception {
+                                KotlinTestUtils.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), true);
                             }
                         }
                     }

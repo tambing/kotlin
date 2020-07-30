@@ -3,6 +3,30 @@
     "neg": {
       "2": [
         {
+          "specVersion": "0.1-591",
+          "casesNumber": 8,
+          "description": "Non-property constructor parameters in the primary constructor",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 4,
+          "description": "Non-property constructor parameters in the primary constructor after unreachable code",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 4,
+          "description": "Non-property constructor parameters with default value in the primary constructor",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-1/neg/2.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
           "specVersion": "0.1-544",
           "casesNumber": 2,
           "description": "Primary constructor for nested class with regular constructor parameter",
