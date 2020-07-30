@@ -11,7 +11,7 @@ class CallBasedInExpressionGenerator(
         gen(argument).<!INAPPLICABLE_CANDIDATE!>let<!> { if (isInverted) <!UNRESOLVED_REFERENCE!>Invert<!>(it) else it }
 
     private fun gen(argument: StackValue): BranchedValue =
-        object : BranchedValue(argument, null, argument.<!UNRESOLVED_REFERENCE!>type<!>, <!UNRESOLVED_REFERENCE!>Opcodes<!>.<!UNRESOLVED_REFERENCE!>IFEQ<!>) {
+        object : <!UNRESOLVED_REFERENCE!>BranchedValue<!>(argument, null, argument.<!UNRESOLVED_REFERENCE!>type<!>, <!UNRESOLVED_REFERENCE!>Opcodes<!>.<!UNRESOLVED_REFERENCE!>IFEQ<!>) {
             override fun putSelector(type: Type, kotlinType: KotlinType?, v: InstructionAdapter) {
                 invokeFunction(v)
                 <!UNRESOLVED_REFERENCE!>coerceTo<!>(type, kotlinType, v)

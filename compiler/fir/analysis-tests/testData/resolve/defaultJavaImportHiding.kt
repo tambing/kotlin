@@ -14,7 +14,7 @@ public class ArrayList<T> extends java.util.ArrayList<T> {}
 
 package foo
 
-class LinkedList<T> : java.util.LinkedList<T>()
+class LinkedList<T> : <!UNRESOLVED_REFERENCE!>java.util.LinkedList<T><!>()
 
 // FILE: HashSet.kt
 
@@ -29,7 +29,7 @@ package foo
 import util.HashMap
 import util.HashSet
 
-class LinkedHashMap<K, V> : java.util.LinkedHashMap<K, V>()
+class LinkedHashMap<K, V> : <!UNRESOLVED_REFERENCE!>java.util.LinkedHashMap<K, V><!>()
 
 fun test_1() {
     val map = HashMap<Int, Int>() // <- should be util.HashMap
