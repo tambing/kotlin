@@ -1,0 +1,136 @@
+{
+  "2": {
+    "pos": {
+      "1": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode with HashCode declared in supertype",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ],
+      "2": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode with HashCode declared in supertype",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        }
+      ],
+      "3": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode with HashCode declared in supertype",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        }
+      ],
+      "4": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode with HashCode declared in supertype",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        }
+      ],
+      "5": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode with HashCode declared in supertype",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "equals and hashcode",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
+        }
+      ]
+    }
+  }
+}
