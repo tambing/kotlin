@@ -7,7 +7,7 @@ fun main() {
     val startTimeNanos = System.nanoTime()
 
     // the problem sits on the next line:
-    val pi = 4.0.toDouble() * delta * (1..n).reduce(
+    val pi = 4.0.<!REDUNDANT_CALL_OF_CONVERSION_METHOD!>toDouble()<!> * delta * (1..n).reduce(
             {t, i ->
                 val x = (i - 0.5) * delta
                 t + 1.0 / (1.0 + x * x)

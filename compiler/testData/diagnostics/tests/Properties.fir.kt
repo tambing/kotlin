@@ -1,7 +1,7 @@
 var x : Int = 1 + x
    get() : Int = 1
    set(value : Long) {
-      field = value.toInt()
+      field = value.<!REDUNDANT_CALL_OF_CONVERSION_METHOD!>toInt()<!>
       field = 1.toLong()
     }
 
