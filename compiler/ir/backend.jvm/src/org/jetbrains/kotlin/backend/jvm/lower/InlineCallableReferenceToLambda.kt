@@ -51,6 +51,7 @@ internal class InlineCallableReferenceToLambdaPhase(val context: JvmBackendConte
     override fun lower(irFile: IrFile) {
         inlinableReferences.addAll(IrInlineReferenceLocator.scan(context, irFile))
         irFile.transformChildrenVoid(this)
+        inlinableReferences.clear()
     }
 
     override fun visitFunctionReference(expression: IrFunctionReference): IrExpression {

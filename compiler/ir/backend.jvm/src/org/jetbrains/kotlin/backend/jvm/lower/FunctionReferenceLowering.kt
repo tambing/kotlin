@@ -52,6 +52,7 @@ internal class FunctionReferenceLowering(private val context: JvmBackendContext)
     override fun lower(irFile: IrFile) {
         ignoredFunctionReferences.addAll(IrInlineReferenceLocator.scan(context, irFile))
         irFile.transformChildrenVoid(this)
+        ignoredFunctionReferences.clear()
     }
 
     override fun visitBlock(expression: IrBlock): IrExpression {

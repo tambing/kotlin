@@ -30,10 +30,10 @@ import org.jetbrains.kotlin.ir.util.primaryConstructor
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
 import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
+import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 import org.jetbrains.kotlin.load.java.JvmAbi
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.utils.addToStdlib.safeAs
-import java.util.*
 
 internal val staticLambdaPhase = makeIrFilePhase(
     ::StaticLambdaLowering,
@@ -41,10 +41,14 @@ internal val staticLambdaPhase = makeIrFilePhase(
     description = "Turn static callable references into singletons"
 )
 
-class StaticLambdaLowering(val backendContext: JvmBackendContext) : FileLoweringPass, IrElementTransformerVoid() {
-    private val staticLambdaFields = HashMap<IrClass, IrField>()
+class StaticLambdaLowering(val backendContext: JvmBackendContext) : FileLoweringPass {
+    override fun lower(irFile: IrFile) {
+        irFile.transformChildrenVoid(StaticLambdaTransformer(backendContext))
+    }
+}
 
-    override fun lower(irFile: IrFile) = irFile.transformChildrenVoid()
+class StaticLambdaTransformer(val backendContext: JvmBackendContext) : IrElementTransformerVoid() {
+    private val staticLambdaFields = HashMap<IrClass, IrField>()
 
     override fun visitClass(declaration: IrClass): IrStatement {
         declaration.transformChildrenVoid()

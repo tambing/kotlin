@@ -69,7 +69,10 @@ private class JvmInlineClassLowering(private val context: JvmBackendContext) : F
         }
     }
 
-    override fun lower(irFile: IrFile) = irFile.transformChildrenVoid()
+    override fun lower(irFile: IrFile) {
+        irFile.transformChildrenVoid()
+        valueMap.clear()
+    }
 
     override fun visitClassNew(declaration: IrClass): IrStatement {
         // The arguments to the primary constructor are in scope in the initializers of IrFields.

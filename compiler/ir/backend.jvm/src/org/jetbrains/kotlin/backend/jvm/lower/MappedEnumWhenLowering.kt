@@ -67,6 +67,7 @@ private class MappedEnumWhenLowering(context: CommonBackendContext) : EnumWhenLo
 
     // To avoid visibility-related issues, classes containing the mappings are direct children
     // of the classes in which they are used. This field tracks which container is the innermost one.
+    // TODO: get rid of mutable field here
     private var state: EnumMappingState? = null
 
     private inner class EnumMappingState {

@@ -33,8 +33,6 @@ internal val collectionStubMethodLowering = makeIrFilePhase(
 )
 
 internal class CollectionStubMethodLowering(val context: JvmBackendContext) : ClassLoweringPass {
-    private val collectionStubComputer = context.collectionStubComputer
-
     override fun lower(irClass: IrClass) {
         if (irClass.isInterface) {
             return
@@ -62,7 +60,7 @@ internal class CollectionStubMethodLowering(val context: JvmBackendContext) : Cl
         }
     }
 
-    private fun IrSimpleFunction.toSignature(): String = collectionStubComputer.getSignature(this)
+    private fun IrSimpleFunction.toSignature(): String = context.methodSignatureMapper.mapAsmMethod(this).toString()
 
     private fun createStubMethod(
         function: IrSimpleFunction, irClass: IrClass, substitutionMap: Map<IrTypeParameterSymbol, IrType>
@@ -133,9 +131,9 @@ internal class CollectionStubMethodLowering(val context: JvmBackendContext) : Cl
 
     // Compute stubs that should be generated, compare based on signature
     private fun generateRelevantStubMethods(irClass: IrClass): Set<IrSimpleFunction> {
-        val ourStubsForCollectionClasses = collectionStubComputer.stubsForCollectionClasses(irClass)
+        val ourStubsForCollectionClasses = stubsForCollectionClasses(irClass)
         val superStubClasses = irClass.superClass?.superClassChain?.map { superClass ->
-            collectionStubComputer.stubsForCollectionClasses(superClass).map { it.readOnlyClass }
+            stubsForCollectionClasses(superClass).map { it.readOnlyClass }
         }?.fold(emptySet<IrClassSymbol>(), { a, b -> a union b }) ?: emptySet()
 
         // do a second filtering to ensure only most relevant classes are included.
@@ -169,12 +167,8 @@ internal class CollectionStubMethodLowering(val context: JvmBackendContext) : Cl
 
     private val IrClass.superClassChain: Sequence<IrClass>
         get() = generateSequence(this) { it.superClass }
-}
 
-internal class CollectionStubComputer(val context: JvmBackendContext) {
-    fun getSignature(irFunction: IrSimpleFunction): String = context.methodSignatureMapper.mapAsmMethod(irFunction).toString()
-
-    inner class StubsForCollectionClass(
+    private inner class StubsForCollectionClass(
         val readOnlyClass: IrClassSymbol,
         val mutableClass: IrClassSymbol
     ) {
@@ -189,12 +183,12 @@ internal class CollectionStubComputer(val context: JvmBackendContext) {
         val mutableOnlyMethods: Collection<IrSimpleFunction> by lazy {
             val readOnlyMethodSignatures = readOnlyClass
                 .functions
-                .map { getSignature(it.owner) }
+                .map { it.owner.toSignature() }
                 .filter { it !in specialCaseStubSignaturesForOldBackend }
                 .toHashSet()
             mutableClass.functions
                 .map { it.owner }
-                .filter { getSignature(it) !in readOnlyMethodSignatures }
+                .filter { it.toSignature() !in readOnlyMethodSignatures }
                 .toHashSet()
         }
 
@@ -222,7 +216,7 @@ internal class CollectionStubComputer(val context: JvmBackendContext) {
 
     private val stubsCache = mutableMapOf<IrClass, Collection<StubsForCollectionClass>>()
 
-    fun stubsForCollectionClasses(irClass: IrClass): Collection<StubsForCollectionClass> =
+    private fun stubsForCollectionClasses(irClass: IrClass): Collection<StubsForCollectionClass> =
         stubsCache.getOrPut(irClass) {
             if (irClass.comesFromJava()) emptySet()
             else preComputedStubs.filter { (readOnlyClass, mutableClass) ->

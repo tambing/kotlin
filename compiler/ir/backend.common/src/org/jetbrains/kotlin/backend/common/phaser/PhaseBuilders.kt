@@ -17,6 +17,11 @@ import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
 private class CompositePhase<Context : CommonBackendContext, Input, Output>(
     val phases: List<CompilerPhase<Context, Any?, Any?>>
 ) : CompilerPhase<Context, Input, Output> {
+    override fun prepare(context: Context) {
+        for (phase in phases) {
+            phase.prepare(context)
+        }
+    }
 
     override fun invoke(phaseConfig: PhaseConfig, phaserState: PhaserState<Input>, context: Context, input: Input): Output {
         @Suppress("UNCHECKED_CAST") var currentState = phaserState as PhaserState<Any?>
@@ -115,6 +120,10 @@ private class PerformByIrFilePhase<Context : CommonBackendContext>(
     override fun invoke(
         phaseConfig: PhaseConfig, phaserState: PhaserState<IrModuleFragment>, context: Context, input: IrModuleFragment
     ): IrModuleFragment {
+        for (phase in lower) {
+            phase.prepare(context)
+        }
+
         for (irFile in input.files) {
             try {
                 for (phase in lower) {
@@ -149,10 +158,17 @@ fun <Context : CommonBackendContext> makeIrFilePhase(
     )
 
 private class FileLoweringPhaseAdapter<Context : CommonBackendContext>(
-    private val lowering: (Context) -> FileLoweringPass
+    private val createLowering: (Context) -> FileLoweringPass
 ) : SameTypeCompilerPhase<Context, IrFile> {
+    private lateinit var lowering: FileLoweringPass
+
+    override fun prepare(context: Context) {
+        lowering = createLowering(context)
+    }
+
     override fun invoke(phaseConfig: PhaseConfig, phaserState: PhaserState<IrFile>, context: Context, input: IrFile): IrFile {
-        lowering(context).lower(input)
+        assert(::lowering.isInitialized) { "File lowering has not been prepared: ${createLowering(context)}" }
+        lowering.lower(input)
         return input
     }
 }

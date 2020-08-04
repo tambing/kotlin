@@ -26,6 +26,8 @@ inline fun <R, D> PhaserState<D>.downlevel(nlevels: Int, block: () -> R): R {
 }
 
 interface CompilerPhase<in Context : CommonBackendContext, Input, Output> {
+    fun prepare(context: Context) {}
+
     fun invoke(phaseConfig: PhaseConfig, phaserState: PhaserState<Input>, context: Context, input: Input): Output
 
     fun getNamedSubphases(startDepth: Int = 0): List<Pair<Int, NamedCompilerPhase<Context, *>>> = emptyList()
@@ -75,6 +77,10 @@ class NamedCompilerPhase<in Context : CommonBackendContext, Data>(
     private val actions: Set<Action<Data, Context>> = emptySet(),
     private val nlevels: Int = 0
 ) : SameTypeCompilerPhase<Context, Data> {
+    override fun prepare(context: Context) {
+        lower.prepare(context)
+    }
+
     override fun invoke(phaseConfig: PhaseConfig, phaserState: PhaserState<Data>, context: Context, input: Data): Data {
         if (this !in phaseConfig.enabled) {
             return input

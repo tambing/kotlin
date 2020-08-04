@@ -6,18 +6,19 @@
 package org.jetbrains.kotlin.backend.jvm.lower
 
 import org.jetbrains.kotlin.backend.common.FileLoweringPass
-import org.jetbrains.kotlin.backend.common.IrElementTransformerVoidWithContext
-import org.jetbrains.kotlin.backend.common.phaser.makeIrFilePhase
 import org.jetbrains.kotlin.backend.common.lower.createIrBuilder
+import org.jetbrains.kotlin.backend.common.phaser.makeIrFilePhase
 import org.jetbrains.kotlin.backend.jvm.JvmBackendContext
 import org.jetbrains.kotlin.config.LanguageFeature
 import org.jetbrains.kotlin.descriptors.Visibilities
-import org.jetbrains.kotlin.ir.IrStatement
+import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.builders.irCall
 import org.jetbrains.kotlin.ir.builders.irExprBody
 import org.jetbrains.kotlin.ir.builders.irGetField
 import org.jetbrains.kotlin.ir.declarations.*
 import org.jetbrains.kotlin.ir.util.*
+import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
+import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
 
 internal val objectClassPhase = makeIrFilePhase(
     ::ObjectClassLowering,
@@ -25,21 +26,26 @@ internal val objectClassPhase = makeIrFilePhase(
     description = "Handle object classes"
 )
 
-private class ObjectClassLowering(val context: JvmBackendContext) : IrElementTransformerVoidWithContext(), FileLoweringPass {
-
-    private var pendingTransformations = mutableListOf<Function0<Unit>>()
+private class ObjectClassLowering(val context: JvmBackendContext) : IrElementVisitorVoid, FileLoweringPass {
+    private var pendingFields = mutableListOf<IrField>()
 
     override fun lower(irFile: IrFile) {
         irFile.accept(this, null)
 
-        pendingTransformations.forEach { it() }
+        for (field in pendingFields) {
+            (field.parent as IrDeclarationContainer).declarations.add(0, field)
+        }
+        pendingFields.clear()
     }
 
-    override fun visitClassNew(declaration: IrClass): IrStatement {
+    override fun visitElement(element: IrElement) {
+        element.acceptChildrenVoid(this)
+    }
+
+    override fun visitClass(declaration: IrClass) {
         process(declaration)
-        return super.visitClassNew(declaration)
+        return super.visitClass(declaration)
     }
-
 
     private fun process(irClass: IrClass) {
         if (!irClass.isObject) return
@@ -57,9 +63,7 @@ private class ObjectClassLowering(val context: JvmBackendContext) : IrElementTra
             with(context.createIrBuilder(publicInstanceField.symbol)) {
                 publicInstanceField.initializer = irExprBody(irGetField(null, privateInstanceField))
             }
-            pendingTransformations.add {
-                (privateInstanceField.parent as IrDeclarationContainer).declarations.add(0, privateInstanceField)
-            }
+            pendingFields.add(privateInstanceField)
         } else {
             with(context.createIrBuilder(publicInstanceField.symbol)) {
                 publicInstanceField.initializer = irExprBody(irCall(constructor.symbol))
@@ -77,8 +81,6 @@ private class ObjectClassLowering(val context: JvmBackendContext) : IrElementTra
             }
         }
 
-        pendingTransformations.add {
-            (publicInstanceField.parent as IrDeclarationContainer).declarations.add(0, publicInstanceField)
-        }
+        pendingFields.add(publicInstanceField)
     }
 }

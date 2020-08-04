@@ -58,6 +58,8 @@ internal class InterfaceLowering(val context: JvmBackendContext) : IrElementTran
 
         // Update IrElements (e.g., IrCalls) to point to the new functions.
         irClass.transformChildrenVoid(this)
+
+        removedFunctions.clear()
     }
 
     private fun handleInterface(irClass: IrClass) {

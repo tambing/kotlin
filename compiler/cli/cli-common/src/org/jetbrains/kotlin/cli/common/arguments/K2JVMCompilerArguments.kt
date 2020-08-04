@@ -82,7 +82,7 @@ class K2JVMCompilerArguments : CommonCompilerArguments() {
 
     @GradleOption(DefaultValues.BooleanFalseDefault::class)
     @Argument(value = "-Xuse-ir", description = "Use the IR backend")
-    var useIR: Boolean by FreezableVar(false)
+    var useIR: Boolean by FreezableVar(true)
 
     @Argument(value = "-Xno-use-ir", description = "Do not use the IR backend. Useful for a custom-built compiler where IR backend is enabled by default")
     var noUseIR: Boolean by FreezableVar(false)

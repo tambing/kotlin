@@ -37,13 +37,11 @@ import org.jetbrains.kotlin.load.java.JvmAbi
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
 
-internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrElementTransformerVoidWithContext(), FileLoweringPass {
-    data class LambdaCallSite(val scope: IrDeclaration, val crossinline: Boolean)
-
-    private val pendingAccessorsToAdd = mutableListOf<IrFunction>()
-    private val inlineLambdaToCallSite = mutableMapOf<IrFunction, LambdaCallSite>()
+internal class SyntheticAccessorLowering(val context: JvmBackendContext) : FileLoweringPass {
+    private val hiddenConstructors = mutableMapOf<IrConstructor, IrConstructor>()
 
     override fun lower(irFile: IrFile) {
+        val inlineLambdaToCallSite = mutableMapOf<IrFunction, LambdaCallSite>()
         irFile.accept(object : IrInlineReferenceLocator(context) {
             override fun visitInlineLambda(
                 argument: IrFunctionReference,
@@ -58,9 +56,10 @@ internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrEle
             }
         }, null)
 
-        irFile.transformChildrenVoid(this)
+        val transformer = SyntheticAccessorTransformer(context, hiddenConstructors, inlineLambdaToCallSite)
+        irFile.transformChildrenVoid(transformer)
 
-        for (accessor in pendingAccessorsToAdd) {
+        for (accessor in transformer.pendingAccessorsToAdd) {
             assert(accessor.fileOrNull == irFile || accessor.isAllowedToBeAddedToForeignFile()) {
                 "SyntheticAccessorLowering should not attempt to modify other files!\n" +
                         "While lowering this file: ${irFile.render()}\n" +
@@ -69,6 +68,22 @@ internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrEle
             (accessor.parent as IrDeclarationContainer).declarations.add(accessor)
         }
     }
+
+    // monitorEnter/monitorExit are the only functions which are accessed "illegally" (see kotlin/util/Synchronized.kt).
+    // Since they are intrinsified in the codegen, SyntheticAccessorLowering should not crash on attempt to add accessors for them.
+    private fun IrFunction.isAllowedToBeAddedToForeignFile(): Boolean =
+        (name.asString() == "access\$monitorEnter" || name.asString() == "access\$monitorExit") &&
+                context.irIntrinsics.getIntrinsic(symbol) != null
+}
+
+private data class LambdaCallSite(val scope: IrDeclaration, val crossinline: Boolean)
+
+private class SyntheticAccessorTransformer(
+    private val context: JvmBackendContext,
+    private val hiddenConstructors: MutableMap<IrConstructor, IrConstructor>,
+    private val inlineLambdaToCallSite: Map<IrFunction, LambdaCallSite>,
+) : IrElementTransformerVoidWithContext() {
+    val pendingAccessorsToAdd = mutableListOf<IrFunction>()
 
     private val functionMap = mutableMapOf<Pair<IrFunctionSymbol, IrDeclarationParent>, IrFunctionSymbol>()
     private val getterMap = mutableMapOf<Pair<IrFieldSymbol, IrDeclarationParent>, IrSimpleFunctionSymbol>()
@@ -212,7 +227,7 @@ internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrEle
     }
 
     private val IrConstructor.isOrShouldBeHidden: Boolean
-        get() = this in context.hiddenConstructors || (
+        get() = this in hiddenConstructors || (
                 !Visibilities.isPrivate(visibility) && !constructedClass.isInline && hasMangledParameters &&
                         origin != IrDeclarationOrigin.FUNCTION_FOR_DEFAULT_PARAMETER &&
                         origin != JvmLoweredDeclarationOrigin.SYNTHETIC_ACCESSOR &&
@@ -220,7 +235,7 @@ internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrEle
 
     private fun handleHiddenConstructor(declaration: IrConstructor): IrConstructor {
         require(declaration.isOrShouldBeHidden, declaration::render)
-        return context.hiddenConstructors.getOrPut(declaration) {
+        return hiddenConstructors.getOrPut(declaration) {
             declaration.makeConstructorAccessor(JvmLoweredDeclarationOrigin.SYNTHETIC_ACCESSOR_FOR_HIDDEN_CONSTRUCTOR).also { accessor ->
                 // There's a special case in the JVM backend for serializing the metadata of hidden
                 // constructors - we serialize the descriptor of the original constructor, but the
@@ -628,12 +643,6 @@ internal class SyntheticAccessorLowering(val context: JvmBackendContext) : IrEle
             else -> true
         }
     }
-
-    // monitorEnter/monitorExit are the only functions which are accessed "illegally" (see kotlin/util/Synchronized.kt).
-    // Since they are intrinsified in the codegen, SyntheticAccessorLowering should not crash on attempt to add accessors for them.
-    private fun IrFunction.isAllowedToBeAddedToForeignFile(): Boolean =
-        (name.asString() == "access\$monitorEnter" || name.asString() == "access\$monitorExit") &&
-                context.irIntrinsics.getIntrinsic(symbol) != null
 }
 
 private fun IrFunction.isCoroutineIntrinsic(): Boolean =
