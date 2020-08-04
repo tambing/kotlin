@@ -23,7 +23,6 @@ import org.jetbrains.kotlin.name.SpecialNames
 import org.jetbrains.kotlin.psi.psiUtil.endOffset
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
 import org.jetbrains.kotlin.resolve.DescriptorUtils
-import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameSafe
 import org.jetbrains.kotlin.resolve.source.PsiSourceElement
 import org.jetbrains.kotlin.types.KotlinType
 import org.jetbrains.kotlin.types.checker.KotlinTypeChecker
@@ -283,17 +282,6 @@ val IrDeclarationWithName.fqNameWhenAvailable: FqName?
 val IrDeclaration.parentAsClass: IrClass
     get() = parent as? IrClass
         ?: error("Parent of this declaration is not a class: ${render()}")
-
-fun IrClass.isLocalClass(): Boolean {
-    var current: IrDeclarationParent? = this
-    while (current != null && current !is IrPackageFragment) {
-        if (current is IrDeclarationWithVisibility && current.visibility == Visibilities.LOCAL)
-            return true
-        current = (current as? IrDeclaration)?.parent
-    }
-
-    return false
-}
 
 tailrec fun IrElement.getPackageFragment(): IrPackageFragment? {
     if (this is IrPackageFragment) return this
