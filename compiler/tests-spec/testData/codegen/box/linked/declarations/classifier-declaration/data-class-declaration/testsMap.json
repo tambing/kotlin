@@ -1,6 +1,138 @@
 {
   "2": {
     "pos": {
+      "10": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.7.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.6.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.8.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.5.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.4.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ],
+      "7": [
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.7.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.6.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.8.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.5.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        },
+        {
+          "specVersion": "0.1-494",
+          "casesNumber": 0,
+          "description": "copy with defaults",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.4.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "secondary"
+        }
+      ],
       "1": [
         {
           "specVersion": "0.1-494",
