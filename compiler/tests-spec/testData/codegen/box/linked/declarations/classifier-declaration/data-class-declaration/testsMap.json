@@ -1,6 +1,72 @@
 {
   "2": {
     "pos": {
+      "12": [
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": "generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.5.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.4.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.8.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.7.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.3.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": "generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 0,
+          "description": " generated component function has the same type as this property and returns the value of this property",
+          "path": "compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.6.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ],
       "10": [
         {
           "specVersion": "0.1-494",

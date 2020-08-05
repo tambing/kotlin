@@ -36,5 +36,29 @@
         }
       ]
     }
+  },
+  "2": {
+    "neg": {
+      "12": [
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 5,
+          "description": "data property at position N starting from 0",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ],
+      "14": [
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 5,
+          "description": "The number of functions is MORE as the number of data propertie",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/14.1.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ]
+    }
   }
 }

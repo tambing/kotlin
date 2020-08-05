@@ -136,6 +136,46 @@ public class BlackBoxCodegenTestSpecGenerated extends AbstractBlackBoxCodegenTes
                                 runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/10.8.kt");
                             }
 
+                            @TestMetadata("12.1.kt")
+                            public void test12_1() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.1.kt");
+                            }
+
+                            @TestMetadata("12.2.kt")
+                            public void test12_2() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.2.kt");
+                            }
+
+                            @TestMetadata("12.3.kt")
+                            public void test12_3() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.3.kt");
+                            }
+
+                            @TestMetadata("12.4.kt")
+                            public void test12_4() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.4.kt");
+                            }
+
+                            @TestMetadata("12.5.kt")
+                            public void test12_5() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.5.kt");
+                            }
+
+                            @TestMetadata("12.6.kt")
+                            public void test12_6() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.6.kt");
+                            }
+
+                            @TestMetadata("12.7.kt")
+                            public void test12_7() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.7.kt");
+                            }
+
+                            @TestMetadata("12.8.kt")
+                            public void test12_8() throws Exception {
+                                runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/12.8.kt");
+                            }
+
                             @TestMetadata("1.1.kt")
                             public void test1_1() throws Exception {
                                 runTest("compiler/tests-spec/testData/codegen/box/linked/declarations/classifier-declaration/data-class-declaration/p-2/pos/1.1.kt");
