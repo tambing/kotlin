@@ -738,9 +738,19 @@ public class FirDiagnosticsTestSpecGenerated extends AbstractFirDiagnosticsTestS
                                 runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.1.kt");
                             }
 
+                            @TestMetadata("12.2.kt")
+                            public void test12_2() throws Exception {
+                                runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.2.kt");
+                            }
+
                             @TestMetadata("14.1.kt")
                             public void test14_1() throws Exception {
                                 runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/14.1.kt");
+                            }
+
+                            @TestMetadata("14.2.kt")
+                            public void test14_2() throws Exception {
+                                runTest("compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/14.2.kt");
                             }
 
                             public void testAllFilesPresentInNeg() throws Exception {

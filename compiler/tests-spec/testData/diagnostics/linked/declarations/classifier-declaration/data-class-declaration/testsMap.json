@@ -47,6 +47,14 @@
           "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.1.kt",
           "unexpectedBehaviour": false,
           "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 5,
+          "description": "data property at position N starting from 0. Class includes regular property declarations in its body",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
         }
       ],
       "14": [
@@ -57,6 +65,28 @@
           "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/14.1.kt",
           "unexpectedBehaviour": false,
           "linkType": "main"
+        },
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 5,
+          "description": "The number of functions is MORE as the number of data propertie. Class includes regular property declarations in its body",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/14.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "main"
+        }
+      ]
+    }
+  },
+  "3": {
+    "neg": {
+      "1": [
+        {
+          "specVersion": "0.1-591",
+          "casesNumber": 5,
+          "description": "data property at position N starting from 0. Class includes regular property declarations in its body",
+          "path": "compiler/tests-spec/testData/diagnostics/linked/declarations/classifier-declaration/data-class-declaration/p-2/neg/12.2.kt",
+          "unexpectedBehaviour": false,
+          "linkType": "primary"
         }
       ]
     }
