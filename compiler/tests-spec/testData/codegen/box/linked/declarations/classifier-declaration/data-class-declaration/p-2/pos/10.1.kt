@@ -3,7 +3,7 @@
 /*
  * KOTLIN CODEGEN BOX SPEC TEST (POSITIVE)
  *
- * SPEC VERSION: 0.1-494
+ * SPEC VERSION: 0.1-591
  * MAIN LINK: declarations, classifier-declaration, data-class-declaration -> paragraph 2 -> sentence 10
  * SECONDARY LINKS: declarations, classifier-declaration, data-class-declaration -> paragraph 2 -> sentence 7
  * NUMBER: 1
