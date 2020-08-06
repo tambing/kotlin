@@ -22,13 +22,15 @@ import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.KtBinaryExpression
 import org.jetbrains.kotlin.psi.KtNameReferenceExpression
+import org.jetbrains.kotlin.psi.KtOperationReferenceExpression
 
 object CanBeReplacedWithOperatorAssignmentChecker : FirExpressionChecker<FirVariableAssignment>() {
     override fun check(functionCall: FirVariableAssignment, context: CheckerContext, reporter: DiagnosticReporter) {
         val lValue = functionCall.lValue
         if (lValue !is FirResolvedNamedReference) return
         val operator = functionCall.psi?.children?.getOrNull(1) ?: return
-        if (operator != KtTokens.EQ) return
+        val operationSign = (operator as? KtOperationReferenceExpression)?.operationSignTokenType
+        if (operationSign != KtTokens.EQ) return
 
         val lValuePsi = lValue.psi as? KtNameReferenceExpression ?: return
         val rValue = functionCall.rValue as? FirFunctionCall ?: return
