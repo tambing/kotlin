@@ -28,7 +28,7 @@ object CanBeReplacedWithOperatorAssignmentChecker : FirExpressionChecker<FirVari
         val lValue = functionCall.lValue
         if (lValue !is FirResolvedNamedReference) return
         val operator = functionCall.psi?.children?.getOrNull(1) ?: return
-        if (operator.text != "=") return
+        if (operator != KtTokens.EQ) return
 
         val lValuePsi = lValue.psi as? KtNameReferenceExpression ?: return
         val rValue = functionCall.rValue as? FirFunctionCall ?: return
@@ -56,9 +56,12 @@ object CanBeReplacedWithOperatorAssignmentChecker : FirExpressionChecker<FirVari
 
             val isLeftMatch = isHierarchicallyTrue(operationToken, leftExpression?.operationToken)
                     && leftExpression?.matcher(variable) == true
+            if (isLeftMatch) return true
             val isRightMatch = isHierarchicallyTrue(operationToken, rightExpression?.operationToken)
                     && rightExpression?.matcher(variable) == true
-            isLeftMatch or isRightMatch
+            if (isRightMatch) return true
+
+            false
         } else {
             val leftExpression = left as? KtBinaryExpression
 
